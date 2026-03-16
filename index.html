@@ -84,11 +84,14 @@
         }
         
         .logo {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--color-text-primary);
+            display: flex;
+            align-items: center;
             text-decoration: none;
+        }
+        
+        .logo img {
+            height: 45px;
+            width: auto;
         }
         
         .logo-en {
@@ -198,8 +201,28 @@
         .hero-section {
             margin-top: 80px;
             padding: 80px 0 60px;
-            background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+            background-image: url('https://api.kuse.ai/api/folder/v1/file/b052d8117f4e764b52e3404b9cf3261a3916040aae290e64cc9279c0488deb79_2289704.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
             text-align: center;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(250, 248, 245, 0.92) 0%, rgba(240, 237, 232, 0.88) 100%);
+            z-index: 1;
+        }
+        
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
         }
         
         .hero-title {
@@ -791,8 +814,7 @@
     <nav class="nav-bar" id="navbar">
         <div class="nav-content">
             <a href="#" class="logo">
-                米侍診所
-                <span class="logo-en">Yoneji Clinic</span>
+                <img src="https://api.kuse.ai/api/folder/v1/file/97e525a10c231f1deba60fb0f7d6892148e76a3e49b7169c7a3f0a08cff539c2_2289699.png" alt="米侍診所 Yoneji Clinic">
             </a>
             <ul class="nav-links">
                 <li><a href="#home">首頁</a></li>
@@ -967,35 +989,8 @@
         <div class="container">
             <h2 class="section-title fade-in">營業時間</h2>
             <div class="hours-container fade-in">
-                <div class="hours-row">
-                    <div class="hours-day">週一</div>
-                    <div class="hours-time">09:00–12:30<br>13:30–18:00<br>18:30–21:00</div>
-                </div>
-                <div class="hours-row">
-                    <div class="hours-day">週二</div>
-                    <div class="hours-time">09:00–12:30<br>13:30–18:00</div>
-                </div>
-                <div class="hours-row">
-                    <div class="hours-day">週三</div>
-                    <div class="hours-time">09:00–12:30<br>13:30–18:00<br>18:30–21:00</div>
-                </div>
-                <div class="hours-row">
-                    <div class="hours-day">週四</div>
-                    <div class="hours-time hours-closed">休診</div>
-                </div>
-                <div class="hours-row">
-                    <div class="hours-day">週五</div>
-                    <div class="hours-time">09:00–12:30<br>13:30–18:00</div>
-                </div>
-                <div class="hours-row">
-                    <div class="hours-day">週六</div>
-                    <div class="hours-time">09:00–12:30<br>13:30–18:00</div>
-                </div>
-                <div class="hours-row">
-                    <div class="hours-day">週日</div>
-                    <div class="hours-time hours-closed">休診</div>
-                </div>
-                <div class="hours-note">
+                <img src="https://api.kuse.ai/api/folder/v1/file/23d4816b81b8eb349a9f4a718559ec6c2141998d0d94a4ed2c21c0915dc012a7_2289700.png" alt="門診營業時間" style="width: 100%; max-width: 600px; margin: 0 auto; display: block; border-radius: 16px; box-shadow: var(--shadow-md);">
+                <div class="hours-note" style="margin-top: 32px;">
                     實際門診與預約時段，請以 LINE 或電話確認為準。
                 </div>
             </div>
@@ -1032,7 +1027,7 @@
                         </svg>
                         <div>
                             <div class="contact-label">Email</div>
-                            <div class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dfa6b0b1bab5b6bcb3b6b1b6bc9fb8b2beb6b3f1bcb0b2">[email&#160;protected]</a></div>
+                            <div class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="463f2928232c2f252a2f282f2506212b272f2a6825292b">[email&#160;protected]</a></div>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1090,7 +1085,7 @@
                     <div class="footer-contact">
                         電話：(02)2707-0056<br>
                         LINE：@881bcibo<br>
-                        Email：<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c2bbadaca7a8aba1aeabacaba182a5afa3abaeeca1adaf">[email&#160;protected]</a><br>
+                        Email：<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c6573727976757f707572757f5c7b717d7570327f7371">[email&#160;protected]</a><br>
                         地址：臺北市大安區復興南路二段45號11樓
                     </div>
                 </div>
@@ -1115,10 +1110,6 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 米侍診所 Yoneji Clinic. All rights reserved.</p>
-                <a href="https://kuse.ai" target="_blank" class="kuse-branding">
-                    <span>made with</span>
-                    <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"/><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"/></svg>
-                </a>
             </div>
         </div>
     </footer>

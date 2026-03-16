@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米侍診所｜專業評估・隱私看診・安心照護｜台北大安區診所</title>
+    <meta name="description" content="米侍診所位於台北市大安區，提供專業評估、隱私看診與安心照護，重視個別化醫療體驗，歡迎透過電話或 LINE 預約諮詢。">
+    
+    <meta property="og:title" content="米侍診所｜專業評估・隱私看診・安心照護｜台北大安區診所">
+    <meta property="og:description" content="米侍診所位於台北市大安區，提供專業評估、隱私看診與安心照護，重視個別化醫療體驗，歡迎透過電話或 LINE 預約諮詢。">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_TW">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-bg-primary: #FAF8F5;
+            --color-bg-secondary: #F0EDE8;
+            --color-accent: #C4A57B;
+            --color-accent-hover: #B39568;
+            --color-text-primary: #3D3935;
+            --color-text-secondary: #6B6560;
+            --color-white: #FFFFFF;
+            --shadow-sm: 0 2px 8px rgba(61, 57, 53, 0.08);
+            --shadow-md: 0 4px 16px rgba(61, 57, 53, 0.12);
+            --shadow-lg: 0 8px 24px rgba(61, 57, 53, 0.16);
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-bar.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .logo {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-decoration: none;
+        }
+        
+        .logo-en {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--color-text-secondary);
+            display: block;
+            margin-top: 2px;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--color-text-primary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--color-text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+            z-index: 999;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--color-bg-secondary);
+            transition: background-color 0.3s ease;
+        }
+        
+        .mobile-menu a:hover {
+            background-color: var(--color-bg-secondary);
+            color: var(--color-accent);
+        }
+        
+        .hero-section {
+            margin-top: 80px;
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--color-text-primary);
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        
+        .btn {
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--color-accent-hover);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--color-white);
+            color: var(--color-text-primary);
+            border: 2px solid var(--color-accent);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .quick-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: var(--color-white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .quick-info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .quick-info-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--color-accent);
+        }
+        
+        .quick-info-text {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+        }
+        
+        .quick-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .highlight-card {
+            background: var(--color-white);
+            padding: 32px 24px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        
+        .highlight-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            color: var(--color-accent);
+        }
+        
+        .highlight-text {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-alt {
+            background-color: var(--color-bg-secondary);
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--color-text-primary);
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            text-align: center;
+            color: var(--color-text-secondary);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-text {
+            font-size: 18px;
+            line-height: 2;
+            color: var(--color-text-secondary);
+            margin-bottom: 40px;
+        }
+        
+        .core-values {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .value-item {
+            padding: 16px 32px;
+            background: var(--color-white);
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-accent);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .value-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: var(--color-white);
+            padding: 48px 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+        }
+        
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            color: var(--color-accent);
+        }
+        
+        .feature-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--color-text-primary);
+        }
+        
+        .feature-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: var(--color-white);
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+        }
+        
+        .service-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--color-text-primary);
+        }
+        
+        .service-description {
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--color-text-secondary);
+            margin-bottom: 28px;
+            flex-grow: 1;
+        }
+        
+        .service-btn {
+            align-self: flex-start;
+        }
+        
+        .hours-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--color-white);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--color-bg-secondary);
+            transition: background-color 0.3s ease;
+        }
+        
+        .hours-row:hover {
+            background-color: var(--color-bg-primary);
+            padding-left: 16px;
+            padding-right: 16px;
+            margin-left: -16px;
+            margin-right: -16px;
+            border-radius: 8px;
+        }
+        
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-day {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            min-width: 80px;
+        }
+        
+        .hours-time {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            text-align: right;
+            line-height: 1.6;
+        }
+        
+        .hours-closed {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        
+        .hours-note {
+            margin-top: 32px;
+            padding: 20px;
+            background: var(--color-bg-secondary);
+            border-radius: 12px;
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            background: var(--color-white);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--color-accent);
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+        
+        .contact-label {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        
+        .contact-value {
+            font-size: 17px;
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 40px;
+        }
+        
+        .map-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 500px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .footer {
+            background-color: var(--color-text-primary);
+            color: var(--color-bg-primary);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-brand {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .footer-tagline {
+            font-size: 15px;
+            color: var(--color-bg-secondary);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        
+        .footer-contact {
+            font-size: 14px;
+            line-height: 2;
+            color: var(--color-bg-secondary);
+        }
+        
+        .footer-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--color-bg-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(250, 248, 245, 0.2);
+            padding-top: 30px;
+            text-align: center;
+            color: var(--color-bg-secondary);
+            font-size: 14px;
+        }
+        
+        .mobile-sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--color-white);
+            box-shadow: 0 -4px 16px rgba(61, 57, 53, 0.12);
+            padding: 16px 20px;
+            display: none;
+            gap: 12px;
+            z-index: 1000;
+        }
+        
+        .mobile-sticky-bar .btn {
+            flex: 1;
+            justify-content: center;
+            padding: 14px 20px;
+            font-size: 15px;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .kuse-branding {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+            font-size: 13px;
+            color: var(--color-bg-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .kuse-branding:hover {
+            color: var(--color-accent);
+        }
+        
+        .kuse-branding svg {
+            height: 1.2em;
+            width: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .quick-info {
+                flex-direction: column;
+                gap: 20px;
+                text-align: left;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .mobile-sticky-bar {
+                display: flex;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hours-container {
+                padding: 32px 24px;
+            }
+            
+            .hours-row {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .hours-time {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar" id="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">
+                米侍診所
+                <span class="logo-en">Yoneji Clinic</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">首頁</a></li>
+                <li><a href="#about">關於米侍</a></li>
+                <li><a href="#features">核心特色</a></li>
+                <li><a href="#services">服務項目</a></li>
+                <li><a href="#hours">營業時間</a></li>
+                <li><a href="#contact">聯絡我們</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">首頁</a>
+        <a href="#about">關於米侍</a>
+        <a href="#features">核心特色</a>
+        <a href="#services">服務項目</a>
+        <a href="#hours">營業時間</a>
+        <a href="#contact">聯絡我們</a>
+    </div>
+
+    <section class="hero-section" id="home">
+        <div class="container">
+            <h1 class="hero-title fade-in">專科醫師評估．隱私看診．安心照護</h1>
+            <p class="hero-subtitle fade-in">米侍診所以個別化照護為核心，專注專業評估、精準治療與長期健康管理，提供更安心、私密且高品質的醫療體驗。</p>
+            
+            <div class="cta-buttons fade-in">
+                <a href="https://line.me/R/ti/p/@881bcibo" class="btn btn-primary" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    立即加入 LINE 諮詢
+                </a>
+                <a href="tel:(02)2707-0056" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    立即致電預約
+                </a>
+            </div>
+            
+            <div class="quick-info fade-in">
+                <div class="quick-info-item">
+                    <svg class="quick-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <div>
+                        <div class="quick-info-text">臺北市大安區復興南路二段45號11樓</div>
+                    </div>
+                </div>
+                <div class="quick-info-item">
+                    <svg class="quick-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <div>
+                        <div class="quick-info-text">(02)2707-0056</div>
+                    </div>
+                </div>
+                <div class="quick-info-item">
+                    <svg class="quick-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    <div>
+                        <div class="quick-info-text">@881bcibo</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-highlights">
+                <div class="highlight-card fade-in">
+                    <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <div class="highlight-text">專科醫師評估</div>
+                </div>
+                <div class="highlight-card fade-in">
+                    <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <div class="highlight-text">隱私看診環境</div>
+                </div>
+                <div class="highlight-card fade-in">
+                    <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    <div class="highlight-text">LINE 快速預約</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">關於米侍｜從治療到預防，重視每一次照護細節</h2>
+            <div class="about-content">
+                <p class="about-text fade-in">米侍診所以個別化照護為核心，不僅著重疾病治療，也重視預防、保養與長期健康規劃。我們致力於提供專業、精準且貼心的醫療照護服務，讓每位來訪者在安心、私密的環境中，獲得真正適合自己的健康建議與照護方案。</p>
+                
+                <div class="core-values">
+                    <div class="value-item fade-in">專業、安全、體貼</div>
+                    <div class="value-item fade-in">個別化照護</div>
+                    <div class="value-item fade-in">重視隱私與安心感</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="features">
+        <div class="container">
+            <h2 class="section-title fade-in">核心特色｜以更細緻的方式照護每一次治療</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <h3 class="feature-title">極微創傷口</h3>
+                    <p class="feature-description">採用高頻電凝 / 雷射技術，降低組織熱傷害，減少不適感</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <h3 class="feature-title">不影響日常</h3>
+                    <p class="feature-description">無須住院，術後可自行返家，隔日可進行基本日常活動</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                    <h3 class="feature-title">精準麻醉</h3>
+                    <p class="feature-description">搭配專屬全身麻醉配置與精準局部神經阻斷，降低風險並減少術後不適</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">服務項目｜從專業評估到完整照護</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <h3 class="service-title">直肛疾病照護</h3>
+                    <p class="service-description">包含直腸膨出、痔瘡（內痔／外痔）、肛門菜花、肛門膿瘍、肛門瘻管、肛裂等相關問題之評估與治療</p>
+                    <a href="https://line.me/R/ti/p/@881bcibo" class="btn btn-primary service-btn" target="_blank">LINE 諮詢</a>
+                </div>
+                <div class="service-card fade-in">
+                    <h3 class="service-title">營養點滴療程</h3>
+                    <p class="service-description">提供醫療級營養點滴規劃，作為術後恢復、營養補給與身體調理的輔助方案</p>
+                    <a href="https://line.me/R/ti/p/@881bcibo" class="btn btn-primary service-btn" target="_blank">LINE 諮詢</a>
+                </div>
+                <div class="service-card fade-in">
+                    <h3 class="service-title">預防醫學檢測</h3>
+                    <p class="service-description">強調由內而外的健康管理，從腸道、營養與整體身體狀態進行評估與預防</p>
+                    <a href="https://line.me/R/ti/p/@881bcibo" class="btn btn-primary service-btn" target="_blank">LINE 諮詢</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="hours">
+        <div class="container">
+            <h2 class="section-title fade-in">營業時間</h2>
+            <div class="hours-container fade-in">
+                <div class="hours-row">
+                    <div class="hours-day">週一</div>
+                    <div class="hours-time">09:00–12:30<br>13:30–18:00<br>18:30–21:00</div>
+                </div>
+                <div class="hours-row">
+                    <div class="hours-day">週二</div>
+                    <div class="hours-time">09:00–12:30<br>13:30–18:00</div>
+                </div>
+                <div class="hours-row">
+                    <div class="hours-day">週三</div>
+                    <div class="hours-time">09:00–12:30<br>13:30–18:00<br>18:30–21:00</div>
+                </div>
+                <div class="hours-row">
+                    <div class="hours-day">週四</div>
+                    <div class="hours-time hours-closed">休診</div>
+                </div>
+                <div class="hours-row">
+                    <div class="hours-day">週五</div>
+                    <div class="hours-time">09:00–12:30<br>13:30–18:00</div>
+                </div>
+                <div class="hours-row">
+                    <div class="hours-day">週六</div>
+                    <div class="hours-time">09:00–12:30<br>13:30–18:00</div>
+                </div>
+                <div class="hours-row">
+                    <div class="hours-day">週日</div>
+                    <div class="hours-time hours-closed">休診</div>
+                </div>
+                <div class="hours-note">
+                    實際門診與預約時段，請以 LINE 或電話確認為準。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">聯絡我們</h2>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <div>
+                            <div class="contact-label">電話</div>
+                            <div class="contact-value">(02)2707-0056</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                        <div>
+                            <div class="contact-label">LINE</div>
+                            <div class="contact-value">@881bcibo</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <div>
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dfa6b0b1bab5b6bcb3b6b1b6bc9fb8b2beb6b3f1bcb0b2">[email&#160;protected]</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <div>
+                            <div class="contact-label">地址</div>
+                            <div class="contact-value">臺北市大安區復興南路二段45號11樓</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-buttons">
+                        <a href="https://line.me/R/ti/p/@881bcibo" class="btn btn-primary" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                            加入 LINE 預約
+                        </a>
+                        <a href="tel:(02)2707-0056" class="btn btn-secondary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            撥打電話
+                        </a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=臺北市大安區復興南路二段45號11樓" class="btn btn-secondary" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            開啟 Google 地圖導航
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="map-container fade-in">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.1425638929367!2d121.54362!3d25.02667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abb6da9c9e1f%3A0x1e1f1c1e1f1c1e1f!2z5Y-w5YyX5biC5aSn5a6J5Y2A5b6p6IiI5Y2X6Lev5LqM5q61NDXomZ8xMealkA!5e0!3m2!1szh-TW!2stw!4v1234567890123!5m2!1szh-TW!2stw"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-brand">米侍診所<br><span style="font-size: 18px; font-weight: 400;">Yoneji Clinic</span></div>
+                    <p class="footer-tagline">專業醫師評估，提供更安心的私密照護體驗。</p>
+                    <div class="footer-contact">
+                        電話：(02)2707-0056<br>
+                        LINE：@881bcibo<br>
+                        Email：<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c2bbadaca7a8aba1aeabacaba182a5afa3abaeeca1adaf">[email&#160;protected]</a><br>
+                        地址：臺北市大安區復興南路二段45號11樓
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">快速連結</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">首頁</a></li>
+                        <li><a href="#about">關於米侍</a></li>
+                        <li><a href="#features">核心特色</a></li>
+                        <li><a href="#services">服務項目</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">聯絡資訊</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hours">營業時間</a></li>
+                        <li><a href="#contact">聯絡我們</a></li>
+                        <li><a href="tel:(02)2707-0056">立即致電</a></li>
+                        <li><a href="https://line.me/R/ti/p/@881bcibo" target="_blank">LINE 預約</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 米侍診所 Yoneji Clinic. All rights reserved.</p>
+                <a href="https://kuse.ai" target="_blank" class="kuse-branding">
+                    <span>made with</span>
+                    <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"/><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-sticky-bar">
+        <a href="https://line.me/R/ti/p/@881bcibo" class="btn btn-primary" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            LINE 預約
+        </a>
+        <a href="tel:(02)2707-0056" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            撥打電話
+        </a>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const mobileMenuBtn = document.getElementById(`mobileMenuBtn`);
+        const mobileMenu = document.getElementById(`mobileMenu`);
+        const navbar = document.getElementById(`navbar`);
+        const navLinks = document.querySelectorAll(`a[href^="#"]`);
+        const mobileMenuLinks = document.querySelectorAll(`.mobile-menu a`);
+
+        mobileMenuBtn.addEventListener(`click`, () => {
+            mobileMenu.classList.toggle(`active`);
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener(`click`, () => {
+                mobileMenu.classList.remove(`active`);
+            });
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener(`click`, (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute(`href`).substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: `smooth`
+                    });
+                }
+            });
+        });
+
+        window.addEventListener(`scroll`, () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add(`scrolled`);
+            } else {
+                navbar.classList.remove(`scrolled`);
+            }
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: `0px 0px -100px 0px`
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add(`visible`);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll(`.fade-in`).forEach(el => {
+            observer.observe(el);
+        });
+
+        document.querySelectorAll(`.kuse-branding`).forEach(el => {
+            el.addEventListener(`click`, (e) => {
+                e.preventDefault();
+                window.open(`https://kuse.ai`, `_blank`);
+            });
+        });
+    </script>
+    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+</body>
+</html>
